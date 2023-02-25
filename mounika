@@ -1,0 +1,7 @@
+x=int(input())
+y=int(input())
+m=int(input())
+a=y*m//x
+print(a)
+t=int((1/4)*a)
+print(t)
