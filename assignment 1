@@ -1,0 +1,76 @@
+# python code for reversing a string using recursion
+
+def reverse(s):
+    if len(s)==0:
+        return s
+    else:
+        return reverse(s[1:])+s[0]
+s=input()
+print(reverse(s))
+
+
+# python code for reversing a string using multithreading
+
+import threading
+
+def reverse_string(input_str):
+    reversed_str = input_str[::-1]
+    print("Reversed string:", reversed_str)
+input_str = input("Enter a string: ")
+thread = threading.Thread(target=reverse_string, args=(input_str,))
+thread.start()
+thread.join()
+
+
+
+# Java program to print reversing a string using recursion
+
+import java.util.Scanner;
+
+public class StringReverseRecursion {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the string:");
+        String str = scanner.nextLine();
+        String reversedStr = reverse(str);
+        System.out.println("Reversed string: " + reversedStr);
+    }
+
+    public static String reverse(String str) {
+        if (str.isEmpty()) {
+            return str;
+        }
+        return reverse(str.substring(1)) + str.charAt(0);
+    }
+
+}
+
+
+
+# Java program to print reversing a string using multithreading
+
+import java.util.Scanner;
+
+public class StringReverseMultiThread {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+
+        Thread thread = new Thread(() -> {
+            String reversedStr = reverse(str);
+            System.out.println("Reversed string: " + reversedStr);
+        });
+        thread.start();
+    }
+
+    public static String reverse(String str) {
+        if (str.isEmpty()) {
+            return str;
+        }
+        return reverse(str.substring(1)) + str.charAt(0);
+    }
+
+}
